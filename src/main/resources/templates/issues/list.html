@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>課題一覧</title>
+</head>
+<body>
+<h1>課題一覧</h1>
+<!-- トップページへのリンク -->
+<a href="../index.html" th:href="@{/}">top</a>
+<!-- 課題作成ページへのリンク -->
+<a href="./creationForm.html" th:href="@{/issues/creationForm}">課題作成</a>
+<table>
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>概要</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- 各課題を行として表示。issueListに含まれる各課題に対してループ処理 -->
+  <tr th:each="issue : ${issueList}">
+    <!-- 課題のIDを表示 -->
+    <th th:text="${issue.id}">(id)</th>
+    <td>
+      <!-- 課題の概要を表示し、クリックすると詳細ページへ移動 -->
+      <a href="./detail.html" th:href="@{/issues/{issueId}(issueId=${issue.id})}" th:text="${issue.summary}">
+        (summary)
+      </a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

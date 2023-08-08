@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>課題作成</title>
+</head>
+<body>
+<h1>課題作成</h1>
+<!-- 以下は課題作成のフォーム -->
+<form action="#" th:action="@{/issues}" th:method="post" th:object="${issueForm}">
+    <div>
+        <!-- 概要の入力欄 -->
+        <label for="summaryInput">概要</label>
+        <input type="text" id="summaryInput" th:field="*{summary}">
+        <!-- 概要の入力エラーがあれば表示 -->
+        <p th:if="${#fields.hasErrors('summary')}" th:errors="*{summary}">(error)</p>
+    </div>
+    <div>
+        <!-- 説明の入力欄（テキストエリア） -->
+        <label for="descriptionInput">説明</label>
+        <textarea id="descriptionInput" row="10" th:field="*{description}"></textarea>
+        <!-- 説明の入力エラーがあれば表示 -->
+        <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}">(error)</p>
+    </div>
+    <div>
+        <!-- 送信ボタン -->
+        <button type="submit">作成</button>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>課題詳細</title>
+</head>
+<body>
+
+<h1>
+    課題詳細
+</h1>
+<!-- 一覧ページへのリンク -->
+<a href="./list.html" th:href="@{/issues}">一覧に戻る</a>
+<div>
+    <!-- 課題の概要を表示（サーバーからのデータバインディング） -->
+    <h2 th:text="${issue.summary}">(summary)</h2>
+    <!-- 課題の説明を表示（サーバーからのデータバインディング） -->
+    <p th:text="${issue.description}">(description)</p>
+</div>
+</body>
+</html>
